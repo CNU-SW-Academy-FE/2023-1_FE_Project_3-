@@ -1,20 +1,29 @@
 import styled from "@emotion/styled";
-import { PosterSlider } from "../component/domain";
+import { CardList } from "../component/domain";
 
 const Container = styled.div`
-  height: 100%;
-  overflow: auto;
 `;
 
-export default function Home() {
+const SearchBar = styled.input`
+  display: block;
+  margin: 16px auto 0;
+  padding: 16px 16px;
+  width: 1024px;
+  height: 48px;
+  font-size: 24px;
+  box-sizing: border-box;
+  border-radius: 20px;
+`;
+
+export default function Popular() {
 
     return (
       <Container>
-        <PosterSlider data={DUMMY_DATA.results}/>
+        <SearchBar type="text" placeholder="typing movie title..."/>
+        <CardList data={DUMMY_DATA.results}/>
       </Container>
-    )
+    );
 }
-
 
 const DUMMY_DATA = {
     "page": 1,
