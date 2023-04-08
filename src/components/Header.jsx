@@ -1,14 +1,15 @@
 import styled from 'styled-components'
-export default function Movie(){
+
+export default function Header(){
   return(
     <Container>
-      movie contents
+      헤더입니다.
     </Container>
   )
 }
 
 const Container = styled.div`
-  background: gray;
+  background: black;
   color: white;
-  padding: 400px;
+  height: 100px;
 `

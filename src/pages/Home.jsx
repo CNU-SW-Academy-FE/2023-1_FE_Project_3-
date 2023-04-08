@@ -1,7 +1,15 @@
+import styled from 'styled-components';
+
 export default function Home(){
   return (
-    <div>
+    <Container>
       home입니다.
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  background: skyblue;
+  color: white;
+  padding: 400px;
+`
