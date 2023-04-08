@@ -1,11 +1,16 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./Header";
+import Home from "./pages/Home";
+import Movie from "./pages/Movie";
 
-function App() {
-
+export default function App() {
   return (
-    <div className="App">
-      React 영화앱 만들기
-    </div>
+    <BrowserRouter>
+    <Header />
+      <Routes>
+        <Route index element={<Home />}/>
+        <Route path="movie" element={<Movie />}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
-
-export default App
