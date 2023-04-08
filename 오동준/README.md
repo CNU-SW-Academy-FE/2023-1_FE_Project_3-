@@ -13,21 +13,21 @@ React를 활용한 영화 서비스앱 구현 프로젝트 입니다.
 
 ### 외적 인터페이스 요구사항
 
-|       구분       |                          내용                          |
-| :--------------: | :----------------------------------------------------: |
-|   요구사항 ID    |                       REQ-01-01                        |
-|    요구사항명    |                 유형별 영화 목록 검색                  |
+| 구분             | 내용                                                   |
+| ---------------- | ------------------------------------------------------ |
+| 요구사항 ID      | REQ-01-01                                              |
+| 요구사항명       | 유형별 영화 목록 검색                                  |
 | 개요(목적, 내용) | 인기순/평점순/최신순 조건에 해당하는 영화 목록을 검색  |
-|       입력       |            공통 헤더 컴포넌트의 링크 클릭             |
-|       출력       | 'Popular'/'Top Rated'/ 'Upcoming'영화 목록 페이지 제공 |
+| 입력             | 공통 헤더 컴포넌트의 링크 클릭                        |
+| 출력             | 'Popular'/'Top Rated'/ 'Upcoming'영화 목록 페이지 제공 |
 
-|       구분       |                        내용                         |
-| :--------------: | :-------------------------------------------------: |
-|   요구사항 ID    |                      REQ-01-02                      |
-|    요구사항명    |                 특정 영화 상세조회                  |
+| 구분             | 내용                                                |
+| ---------------- | --------------------------------------------------- |
+| 요구사항 ID      | REQ-01-02                                           |
+| 요구사항명       | 특정 영화 상세조회                                  |
 | 개요(목적, 내용) | 영화 데이터의 고유한 순번에 해당하는 영화 상세 조회 |
-|       입력       |            특정 영화 카드내의 링크 클릭             |
-|       출력       |                영화 상세 페이지 제공                |
+| 입력             | 특정 영화 카드내의 링크 클릭                        |
+| 출력             | 영화 상세 페이지 제공                               |
 
 ### 기능적 요구사항
 
@@ -40,13 +40,13 @@ React를 활용한 영화 서비스앱 구현 프로젝트 입니다.
 - 1-1. Carousel 구성
 
   - 파일 : pages/Home.jsx (URL경로 : “/”)
-  - 라이브러리 : react-responsive-carousel (https://github.com/leandrowd/react-responsive-carousel)
+  - 라이브러리 : `react-responsive-carousel` (https://github.com/leandrowd/react-responsive-carousel)
   - 내용 : (메인 화면내에서) 매 3초마다 자동 페이징, 페이지 네이션 및 좌/우 아이콘을 통한 수동 페이징, 해당 영화 클릭 시 상세페이지로 이동.
 
 - 1-2. Skeleton 구성
 
   - 파일 : pages/Movie.jsx (URL경로 : “/movie/{type}”), components/Card.jsx
-  - 라이브러리 : react-loading-skeleton (https://github.com/dvtng/react-loading-skeleton)
+  - 라이브러리 : `react-loading-skeleton` (https://github.com/dvtng/react-loading-skeleton)
   - 내용 : (영화 리스트내에서) API요청중에 카드영역내의 이미지를 일시적으로 1.5초동안 Skeleton 컴포넌트로 렌더링.
 
 #### B. API 연동
@@ -69,6 +69,14 @@ React를 활용한 영화 서비스앱 구현 프로젝트 입니다.
   - https://api.themoviedb.org/3/movie/{MOVIE_ID}?language=ko-KR&api_key={API_KEY} URL 구성
     - MOVIE_ID : movie데이터의 id 필드 입력
     - API_KEY : 발급받은 API의 키 입력
+
+- 2-4. base url
+
+  - 서비스 : `https://api.themoviedb.org/3`
+  - 이미지 : `https://image.tmdb.org/t/p/original`
+
+- 2-5. documentation
+  - https://developers.themoviedb.org/3/getting-started
 
 C. 기능 구현 참고
 

@@ -1,5 +1,14 @@
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import "./index.css";
+
 function App() {
-    return <div>영화 앱</div>;
+    return (
+        <>
+            <Header />
+            <Outlet />
+        </>
+    );
 }
 
 export default App;
