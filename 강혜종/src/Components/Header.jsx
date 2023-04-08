@@ -1,17 +1,18 @@
 import styled from "styled-components"
 
-function Home() {
+function Header() {
     return (
         <Container>
-            home
+            header
         </Container>
-    )
+    ) 
+
 }
 
 const Container = styled.div`
-    background: skyblue;
+    height: 100px;
+    background: black;
     color: white;
-    padding: 300px;
 `
 
-export default Home
+export default Header
