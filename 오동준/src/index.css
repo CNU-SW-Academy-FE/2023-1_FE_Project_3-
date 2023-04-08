@@ -8,6 +8,10 @@
     box-sizing: content-box;
 }
 
+html {
+    scrollbar-width: none;
+}
+
 #root {
     display: flex;
     flex-direction: column;

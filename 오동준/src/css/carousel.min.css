@@ -1,0 +1,53 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel .slider-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .slider-wrapper.axis-horizontal .slider {
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.carousel .slider-wrapper.axis-vertical .slider {
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.carousel .slider {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    list-style-type: none;
+    width: calc(100% * var(--slides));
+}
+
+.carousel .slider.animated {
+    transition-duration: var(--speed) ms;
+    transition-duration: var(--speed) ms;
+}
+
+.carousel .slide {
+    float: left;
+}
+
+.carousel .control-dots {
+    position: absolute;
+    bottom: calc(var(--dot-size) / -2);
+    left: calc(50% - (var(--dots-length) * var(--dot-size)) / 2);
+}
+
+.carousel .control-dots > div {
+    display: inline-block;
+}
+
+.carousel .control-dots > div > button {
+    font-size: var(--dot-size);
+}
