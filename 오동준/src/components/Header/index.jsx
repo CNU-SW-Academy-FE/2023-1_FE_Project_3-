@@ -8,13 +8,18 @@ const Wrapper = styled.div`
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+    height: fit-content;
     background-color: black;
     & a {
         text-decoration: none;
     }
+    position: fixed;
+    z-index: 1;
 `;
 
 const LinkItem = styled.div`
+    width: fit-content;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,8 +29,6 @@ const LinkItem = styled.div`
     padding: 10px 30px;
     margin: 0;
     min-width: 70px;
-    width: fit-content;
-    height: 40px;
     background-image: url(${({ src }) => (src ? src : "none")});
     background-size: cover;
     background-repeat: no-repeat;
@@ -43,13 +46,13 @@ const Header = () => {
                     style={{ margin: "10px 30px", padding: "0", "&:hover": {} }}
                 />
             </Link>
-            <Link to="/popular">
+            <Link to="/movie/popular">
                 <LinkItem>Popular</LinkItem>
             </Link>
-            <Link to="/toprated">
+            <Link to="/movie/top_rated">
                 <LinkItem>Top Rated</LinkItem>
             </Link>
-            <Link to="/upcoming">
+            <Link to="/movie/upcoming">
                 <LinkItem>Upcoming</LinkItem>
             </Link>
             {/* <Link to="/bookmark">

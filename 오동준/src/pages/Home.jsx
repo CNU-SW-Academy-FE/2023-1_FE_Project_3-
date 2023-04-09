@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 
 const CustomUl = styled.div`
     margin: 0;
-    padding: 0;
+    padding-top: 60px;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -162,13 +162,13 @@ const Home = () => {
         setCurIdx(curIdx === 0 ? movies.length - 1 : curIdx - 1);
     }, [curIdx]);
 
-    // useEffect(() => {
-    //     const tick = setInterval(
-    //         () => setCurIdx(curIdx === movies.length - 1 ? 0 : curIdx + 1),
-    //         3000
-    //     );
-    //     return () => clearInterval(tick);
-    // }, [curIdx]);
+    useEffect(() => {
+        const tick = setInterval(
+            () => setCurIdx(curIdx === movies.length - 1 ? 0 : curIdx + 1),
+            3000
+        );
+        return () => clearInterval(tick);
+    }, [curIdx]);
     return (
         <Wrapper>
             <CustomUl>

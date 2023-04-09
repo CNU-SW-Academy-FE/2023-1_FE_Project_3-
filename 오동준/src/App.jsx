@@ -1,20 +1,20 @@
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import "./index.css";
-import axios from "axios";
+import styled from "@emotion/styled";
 
-axios.defaults.baseURL = import.meta.env.VITE_MOVIE_BASEURL;
-axios.defaults.headers.common["Authorization"] = `Bearer ${
-    import.meta.env.VITE_AUTH_TOKEN
-}`;
-axios.defaults.headers.post["Content-type"] = import.meta.env.VITE_CONTENT_TYPE;
+const Container = styled.div`
+    width: 100%;
+    height: fit-content;
+    background-color: black;
+`;
 
 function App() {
     return (
-        <>
+        <Container>
             <Header />
             <Outlet />
-        </>
+        </Container>
     );
 }
 

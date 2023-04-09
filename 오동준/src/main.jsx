@@ -3,10 +3,15 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/Home";
-import Popular from "./pages/List/Popular";
-import TopRated from "./pages/List/TopRated";
-import Upcoming from "./pages/List/Upcoming";
-import Movie from "./pages/Movie";
+import Movie, { loader as MovieLoader } from "./pages/Movie";
+import List, { loader as ListLoader } from "./pages/List";
+import axios from "axios";
+
+axios.defaults.baseURL = import.meta.env.VITE_MOVIE_BASEURL;
+axios.defaults.headers.common["Authorization"] = `Bearer ${
+    import.meta.env.VITE_AUTH_TOKEN
+}`;
+axios.defaults.headers.post["Content-type"] = import.meta.env.VITE_CONTENT_TYPE;
 
 const router = createBrowserRouter([
     {
@@ -18,20 +23,14 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "/popular",
-                element: <Popular />,
+                path: "/movie/:type",
+                element: <List />,
+                loader: ListLoader,
             },
             {
-                path: "/toprated",
-                element: <TopRated />,
-            },
-            {
-                path: "/upcoming",
-                element: <Upcoming />,
-            },
-            {
-                path: "/movie/:movieId",
+                path: "/movie/detail/:movieId",
                 element: <Movie />,
+                loader: MovieLoader,
             },
         ],
     },
