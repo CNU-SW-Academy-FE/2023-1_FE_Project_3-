@@ -1,10 +1,10 @@
 import { Carousel } from "react-responsive-carousel";
-import { useData } from "../hooks/useData";
 import styled from "@emotion/styled";
 import { ReactComponent as ArrowLeft } from "../icons/chevron-left.svg";
 import { ReactComponent as ArrowRight } from "../icons/chevron-right.svg";
 import { ReactComponent as Star } from "../icons/star.svg";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useApi } from "../hooks/useApi";
 
 const Wrapper = styled.div`
     display: flex;
@@ -151,24 +151,28 @@ const MyStar = styled.div`
 
 const Home = () => {
     const iconSize = 40;
-    let movies = useData();
-    movies = movies.results;
     const [curIdx, setCurIdx] = useState(0);
+    const { data, loading, error } = useApi(
+        `/movie/popular${import.meta.env.VITE_QUERY}`
+    );
+    const { results: movies } = data || [];
+
     const handleRightclick = useCallback(() => {
         setCurIdx(curIdx === movies.length - 1 ? 0 : curIdx + 1);
-    }, [curIdx]);
+    }, [curIdx, movies]);
 
     const handleLeftclick = useCallback(() => {
         setCurIdx(curIdx === 0 ? movies.length - 1 : curIdx - 1);
-    }, [curIdx]);
+    }, [curIdx, movies]);
 
     useEffect(() => {
-        const tick = setInterval(
-            () => setCurIdx(curIdx === movies.length - 1 ? 0 : curIdx + 1),
-            3000
-        );
+        const tick = setInterval(handleRightclick, 3000);
         return () => clearInterval(tick);
-    }, [curIdx]);
+    }, [curIdx, movies]);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>{error.message}</p>;
+
     return (
         <Wrapper>
             <CustomUl>

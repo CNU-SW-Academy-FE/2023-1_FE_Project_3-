@@ -14,7 +14,7 @@ const Wrapper = styled.div`
         text-decoration: none;
     }
     position: fixed;
-    z-index: 1;
+    z-index: 2;
 `;
 
 const LinkItem = styled.div`

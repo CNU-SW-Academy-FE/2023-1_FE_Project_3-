@@ -14,6 +14,7 @@ export function useApi(url, method = "get", body = null) {
                     url,
                     data: body,
                 });
+                console.log(response);
                 setData(response.data);
             } catch (error) {
                 setError(error);
@@ -24,6 +25,5 @@ export function useApi(url, method = "get", body = null) {
 
         fetchData();
     }, [url, method, body]);
-
     return { data, loading, error };
 }

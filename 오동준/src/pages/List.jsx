@@ -1,8 +1,8 @@
 import { Link, useLoaderData } from "react-router-dom";
-import { useData } from "./../hooks/useData";
 import styled from "@emotion/styled";
 import { ReactComponent as SearchIcon } from "../icons/search.svg";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { useApi } from "../hooks/useApi";
 
 const Wrapper = styled.div`
     width: 100%;
@@ -92,23 +92,17 @@ export function loader({ params }) {
 
 export default function List() {
     const { type } = useLoaderData();
-    // const { data, loading, error } = useApi(`/movie/${type}`);
-    // if (loading) return <p>Loading...</p>;
-    // if (error) return <p>{error.message}</p>;
-    const { results } = useData();
-    let totalHeight;
-    const ref = useRef();
-    useEffect(() => {
-        totalHeight = ref.current.offsetHeight;
-        console.log(totalHeight);
-    }, []);
-
+    const { data, loading, error } = useApi(
+        `/movie/${type}${import.meta.env.VITE_QUERY}`
+    );
+    const { results: movies } = data || [];
     const [keyword, setKeyword] = useState("");
-
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>{error.message}</p>;
     return (
         <Wrapper>
             <Center>
-                <TopBox ref={ref}>
+                <TopBox>
                     <SearchBox>
                         <SearchIcon width={24} height={24} stroke="#aaa" />
                         <SearchInput
@@ -119,7 +113,7 @@ export default function List() {
                     <MovieType>{type.toUpperCase()}</MovieType>
                 </TopBox>
                 <MoviePosters>
-                    {results
+                    {movies
                         .filter(({ title }, i) => title.indexOf(keyword) > -1)
                         .map(({ poster_path, title, id }, i) => (
                             <Link key={i} to={`/movie/detail/${id}`}>
