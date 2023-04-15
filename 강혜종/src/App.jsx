@@ -9,7 +9,6 @@ function App() {
         <Header />
         <Routes>
           <Route index element={<Home />}/>
-          <Route path="movie" element={<Movie />}/>
 
         </Routes>
       </BrowserRouter>

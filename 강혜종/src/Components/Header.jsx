@@ -1,18 +1,52 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
+
+const imdbImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/330px-IMDB_Logo_2016.svg.png"
 
 function Header() {
     return (
         <Container>
-            header
+            <Cell className="left">
+                <Link to="/">
+                    <Img src={imdbImg} alt="엽화앱 로고"/>
+                </Link>
+                <Link to="/Popular">
+                    Popular
+                </Link>
+                <Link to="/Top_Rated">
+                    Top Rated
+                </Link>
+                <Link to="/Upcoming">
+                    Upcoming
+                </Link>
+            </Cell>
         </Container>
     ) 
 
 }
 
 const Container = styled.div`
-    height: 100px;
-    background: black;
-    color: white;
+    margin: 0 2.5rem;
+    padding: 0.5rem 0;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+`
+
+const Cell = styled.div`
+    display: flex;
+    align-items: center;
+    &.left {
+        gap: 3rem;
+        font-size: 1.3rem;
+        cursor: pointer;
+    }
+`
+
+const Img = styled.img`
+    width: 88px;
+    cursor: pointer;
+    display: block;
 `
 
 export default Header
