@@ -5,7 +5,7 @@ const Container = styled.div`
     display: flex;
     margin: 0px;
     padding: 0px;
-    box-shadow: 0 3px 10px white;
+    box-shadow: 0 -50px 100px white;
 `;
 
 const HomeButton = styled.button`
@@ -66,8 +66,8 @@ export default function Header({ children }) {
                 <HomeButton><Link to="/" style={HomeAnchor}>IMDb</Link></HomeButton>
                 <NavigationList>
                     <NavigationItem><Link to="/popular" style={AnchorStyle}>Popular</Link></NavigationItem>
-                    <NavigationItem><Link to="/" style={AnchorStyle}>Top Rated</Link></NavigationItem>
-                    <NavigationItem><Link to="/" style={AnchorStyle}>Upcoming</Link></NavigationItem>
+                    <NavigationItem><Link to="/toprated" style={AnchorStyle}>Top Rated</Link></NavigationItem>
+                    <NavigationItem><Link to="/upcoming" style={AnchorStyle}>Upcoming</Link></NavigationItem>
                 </NavigationList>
             </Container>
             {children}

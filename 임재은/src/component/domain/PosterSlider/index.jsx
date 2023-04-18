@@ -1,6 +1,9 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel"
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 
 const Wrapper = styled.div`
     /* max-height: 80vh;
@@ -36,12 +39,15 @@ const Paragraph = styled.p`
 `;
 
 export default function CarauselList({ data }) {
+  useEffect(() => {
+    axios.get("")
+  });
 
-
-    return (
-        <Carousel autoPlay emulateTouch infiniteLoop centerMode centerSlidePercentage={100} showStatus={false} showThumbs={false} >
-          {data.map(({ id, backdrop_path, original_title, release_date, vote_average, overview }) => (
-            <Wrapper key={id}>
+  return (
+      <Carousel autoPlay emulateTouch infiniteLoop centerMode centerSlidePercentage={100} showStatus={false} showThumbs={false} >
+        {data.map(({ id, backdrop_path, original_title, release_date, vote_average, overview }) => (
+          <Link to={`/movie/${id}`} style={{ color: "white" }} key={id}>
+            <Wrapper>
               <img src={`https://image.tmdb.org/t/p/original/${backdrop_path}`} alt="error" />
               <Description>
                 <Title>{original_title}</Title>
@@ -49,7 +55,8 @@ export default function CarauselList({ data }) {
                 <Paragraph>{overview}</Paragraph>
               </Description>
             </Wrapper>
-          ))}
-        </Carousel>
-    )
+          </Link>
+        ))}
+      </Carousel>
+  );
 }

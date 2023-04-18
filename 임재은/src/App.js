@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Home, Movie, Popular } from "./pages";
+import { Home, Movie, Popular, TopRated, Upcoming } from "./pages";
 import { Header } from "./component/domain";
 
 function App() {
@@ -7,8 +7,10 @@ function App() {
     <Header>    
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Movie" element={<Movie />} />
+        <Route path="/movie/:id" element={<Movie />} />
         <Route path="/popular" element={<Popular />} />
+        <Route path="/toprated" element={<TopRated />} />
+        <Route path="/upcoming" element={<Upcoming />} />
       </Routes>
     </Header>
 

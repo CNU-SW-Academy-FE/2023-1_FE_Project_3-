@@ -1,14 +1,15 @@
 import styled from "@emotion/styled"
 
 const ImageWrapper = styled.div`
-    margin: 16px 0px;
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.4);
     overflow: hidden;
 
+    transition: box-shadow 0.2s ease-in-out, filter 0.2s ease-in-out;
+
     &:hover {
         cursor: pointer;
-        box-shadow: 0 0 5px white;
+        box-shadow: 0 0 10px 2px white;
         filter: brightness(120%);
     }
 
@@ -24,6 +25,9 @@ export default function Card({
     radius = 0,
     ...props
 }) {
+    width = Number(width);
+    height = Number(height);
+
     const WrapperStyle = {
         display: block ? "block" : "inline-block",
         width: `${width}px`,
@@ -36,14 +40,12 @@ export default function Card({
         display: "inline-block",
         width: `${width-2}px`,
         height: `${height-2}px`,
-        minWidth: width,
-        minHeight: height,
         objectFit: mode,
     };
 
     return (
-        <ImageWrapper style={{...props, ...WrapperStyle}}>
-            <img src={src} alt={alt} style={{ ...CardStyle}} />
+        <ImageWrapper style={{ ...props, ...WrapperStyle }}>
+            <img src={src} alt={alt} style={{ ...CardStyle }} />
         </ImageWrapper>
     )
 }
