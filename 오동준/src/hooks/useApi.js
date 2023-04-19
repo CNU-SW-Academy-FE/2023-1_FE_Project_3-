@@ -9,6 +9,7 @@ export function useApi(url, method = "get", body = null) {
     useEffect(() => {
         async function fetchData() {
             try {
+                setLoading(true);
                 const response = await axios({
                     method,
                     url,
