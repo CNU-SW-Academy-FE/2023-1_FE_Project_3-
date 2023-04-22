@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
-import Movie from "./pages/Movie"
 import Header from "./Components/Header"
+import MovieDetail from "./pages/MovieDetail"
+import MovieList from "./pages/MovieList"
 
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
         <Header />
         <Routes>
           <Route index element={<Home/>} />
-          <Route path="movie" element={<Movie />} />
+          <Route path="" element={<MovieDetail/>} />
+          <Route path="" element={<MovieList/>} />
         </Routes>
       </BrowserRouter>
     )
