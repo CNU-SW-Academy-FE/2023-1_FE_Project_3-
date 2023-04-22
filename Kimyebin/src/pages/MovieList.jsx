@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-function Movie() {
+function MovieList() {
   return ( 
     <Container>
       무비컨텐츠
@@ -14,4 +14,4 @@ const Container = styled.div`
   color: white;
   padding: 400px;
 `
-export default Movie;
+export default MovieList;

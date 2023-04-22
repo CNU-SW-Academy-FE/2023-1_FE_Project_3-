@@ -4,14 +4,17 @@
 import { Route, BrowserRouter, Routes} from 'react-router-dom';
 import Header from './Components/Header';
 import Home from './pages/Home';
-import Movie from './pages/Movie';
+import Movie from './pages/MovieList';
+import MovieList from './pages/MovieList';
+import MovieDetail from './pages/MovieDetail';
 function App() {
   return (
     <BrowserRouter>
       <Header/>
       <Routes>
         <Route index element={<Home/>}/>
-        <Route path='movie' element={<Movie/>} />
+        <Route path="" element={<MovieDetail/>}/>
+        <Route path="" element={<MovieList/>}/>
       </Routes>
     </BrowserRouter>
   )
