@@ -1,33 +1,51 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-export const Header = () => {
-    const navigate = useNavigate();
-    const handleClick = () => {
-        navigate("/");
-    };
+const imdbImg = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/440px-IMDB_Logo_2016.svg.png';
 
+function Header() {
     return (
-        <AppHeader>
-            <AppLogo onClick={handleClick}>
-                IMDb
-            </AppLogo>
-        </AppHeader>
+        <Container>
+            <Cell className="left">
+                <Link to="/">
+                    <Img src={imdbImg} alt="영화 앱 로고 입니다." />
+                </Link>
+                <Link to="/movies/popular">
+                    Popular
+                </Link>
+                <Link to="/movies/top_rated">
+                    Top Rated
+                </Link>
+                <Link to="/movies/upcoming">
+                    Upcoming
+                </Link>
+            </Cell>
+        </Container>
     );
-};
+}
 
-const AppHeader = styled.header`
+export default Header;
+
+const Container = styled.div`
+    margin: 0 2.5rem;
+    padding: 0.5rem 0;
+    align-items: center;
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 50px;
-    background-color: black;
+    justify-content: space-between;
 `;
 
-const AppLogo = styled.div`
-    height: 30px;
-    background-color: yellow;
-    color: black;
-    font-weight: bold;
-    cursor: Pointer;
+const Cell = styled.div`
+    display: flex;
+    align-items: center;
+    &.left {
+        gap: 3rem;
+        font-size: 1.3rem;
+        cursor: pointer;
+    }
+`;
+
+const Img = styled.img`
+    width: 88px;
+    cursor: pointer;
+    display: block;
 `;
