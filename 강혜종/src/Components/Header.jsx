@@ -10,15 +10,9 @@ function Header() {
                 <Link to="/">
                     <Img src={imdbImg} alt="엽화앱 로고"/>
                 </Link>
-                <Link to="/Popular">
-                    Popular
-                </Link>
-                <Link to="/Top_Rated">
-                    Top Rated
-                </Link>
-                <Link to="/Upcoming">
-                    Upcoming
-                </Link>
+                <Link to="/movies/popular">Popular</Link>
+                <Link to="/movies/top_rated">Top Rated</Link>
+                <Link to="/movies/upcoming">Upcoming</Link>
             </Cell>
         </Container>
     ) 
