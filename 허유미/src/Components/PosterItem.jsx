@@ -1,16 +1,22 @@
 import styled from "styled-components";
 import { AiFillStar } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 function PosterItem({ movie }) {
+    const navigate = useNavigate();
+
 
     const onClickPoster = () => {
-        console.log("1")
+        navigate("/movie/" + movie.id)
     }
 
     return ( 
         <Container onClick={onClickPoster}>
             <ImageBox>
-                <img src="" alt="" />
+                <img 
+                    src={"https://image.tmdb.org/t/p/original" + movie.backdrop_path} 
+                    alt="사진" 
+                />
             </ImageBox>
             <Overlay>
                 <Title>{movie.original_title}</Title>
@@ -41,7 +47,7 @@ const Overlay = styled.div`
     bottom: 0;
     width: 100%;
     text-align: left;
-    background-image: linear-gradient(grb(0,0,0,0), rgb(0,0,0,1));
+    background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1));
 `;
 
 const Title = styled.h5`
