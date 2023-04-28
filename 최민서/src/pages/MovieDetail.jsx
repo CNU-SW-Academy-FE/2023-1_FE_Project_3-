@@ -48,9 +48,9 @@ function MovieDetail() {
                             <span>{movie.runtime + " mins"}</span>
                         </Text>
                         <GenreGroup>
-                            {movie.genres.map(genre => {
+                            {movie.genres.map((genre) => (
                                 <GenreItem key={genre.id}>{genre.name}</GenreItem>
-                            })}
+                            ))}
                         </GenreGroup>
                     </RightSideTop>
                     <RightSideBottom>
