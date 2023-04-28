@@ -24,13 +24,13 @@ function MovieDetail() {
     return (
         <Container>
             <Intro>
-                <ImgBox>
+                <ImgBox className="backdrop">
                     <img src={"https://image.tmdb.org/t/p/original" + movie.backdrop_path} alt="사진" />
                 </ImgBox>
             </Intro>
             <Content>
                 <LeftSide>
-                    <ImgBox>
+                    <ImgBox className="poster">
                         <img src={"https://image.tmdb.org/t/p/original" + movie.poster_path} alt="사진" />
                     </ImgBox>
                 </LeftSide>
@@ -96,6 +96,7 @@ const ImgBox = styled.div`
         img {
             width: 100%;
             height: 500px;
+            margin-bottom: -55px;
             object-fit: cover;
             object-position: 0 35%;
         }

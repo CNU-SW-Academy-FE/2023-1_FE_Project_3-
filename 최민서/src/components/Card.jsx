@@ -6,39 +6,40 @@ import { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 function Card({ movie }) {
-    const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [hover, setHover] = useState(false);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 1500);
-    }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
 
-    return ( 
-        <Container>
-            {loading ? (
-                <Item>
-                    <SkeletonTheme baseColor="#202020" highlightColor="#444">
-                        <Skeleton height={300} duration={2} />
-                    </SkeletonTheme>
-                </Item>
-            ) : (
-                <Link to={"/movie/" + movie.id}>
-                    <Item>
-                        <Img src={"https://image.tmdb.org/t/p/original" + movie.poster_path} alt="사진" />
-                    </Item>
-                    <Overlay>
-                        <Title>{movie.original_title}</Title>
-                        <SubTitle>
-                            {movie.release_date} / {movie.vote_average}
-                            <AiFillStar/>
-                        </SubTitle>
-                        <Description>{movie.overview.slice(0, 100) + '...'}</Description>
-                    </Overlay>
-                </Link>
-            )}
-        </Container>
-    );
+  return (
+    <Container>
+      {loading ? (
+        <Item>
+          <SkeletonTheme baseColor="#202020" highlightColor="#444">
+            <Skeleton height={300} duration={2} />
+          </SkeletonTheme>
+        </Item>
+      ) : (
+        <Link to={"/movie/" + movie.id}>
+          <Item>
+            <Img src={"https://image.tmdb.org/t/p/original" + movie.poster_path} alt="사진" />
+            <Overlay>
+              <Title>{movie.original_title}</Title>
+              <SubTitle>
+                {movie.release_date} / {movie.vote_average}
+                <AiFillStar />
+              </SubTitle>
+              <Description>{movie.overview.slice(0, 100) + '...'}</Description>
+            </Overlay>
+          </Item>
+        </Link>
+      )}
+    </Container>
+  );
 }
 
 export default Card;
@@ -57,6 +58,7 @@ const Item = styled.div`
   z-index: 0;
   transition: transform 0.2s;
   border: 1px solid rgb(99, 99, 99);
+  
   &:hover {
     transform: scale(1.2);
     z-index: 1000;
