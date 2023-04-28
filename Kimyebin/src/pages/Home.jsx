@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { Carousel } from "react-responsive-carousel";
 import PosterItem from "../Components/PosterItem";
 import { useEffect } from "react";
 import { config } from "../constant";
 import { useState } from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 function Home() {
   const [ popularMovies, setPopularMovies ] = useState([]);
@@ -44,6 +45,9 @@ const Container = styled.div`
 const MoviePoster = styled.div`
   display: flex;
   align-items: center;
+  .carousel .thumbs-wrapper {
+    margin: 0;
+  }
 `;
 
 export default Home;
