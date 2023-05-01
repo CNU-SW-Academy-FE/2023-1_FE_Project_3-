@@ -13,7 +13,7 @@ function Card ({movie}) {
         setTimeout(() => {
             setLoading(false);
         }, 1500)
-    }, [])  // [] 1번만 호출, 아무것도 안넣고 비우면 매번 호출, [data] data변할때마다 호출
+    }, [])
 
     return ( 
         <Container>
