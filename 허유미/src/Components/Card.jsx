@@ -29,19 +29,20 @@ function Card ({movie}) {
             (
                 <Link to={/movie/ + movie.id}>
                     <Item>
-                        <Img 
-                            src={"https://image.tmdb.org/t/p/original" + movie.poster_path}
-                            alt="사진"
-                        />
+                            <Img 
+                                src={"https://image.tmdb.org/t/p/original" + movie.poster_path}
+                                alt="사진"
+                            />
+                        <Overlay>
+                            <Title>{movie.original_title}</Title>
+                            <SubTitle>
+                                {movie.release_date} / {movie.vote_average}
+                                <AiFillStar />
+                            </SubTitle>
+                            <Description>{movie.overview.slice(0, 100) + "..."}</Description>
+                        </Overlay>
                     </Item>
-                    <Overlay>
-                        <Title>{movie.original_title}</Title>
-                        <SubTitle>
-                            {movie.release_date} / {movie.vote_average}
-                            <AiFillStar />
-                        </SubTitle>
-                        <Description>{movie.overview.slice(0,100) + "..."}</Description>
-                    </Overlay>
+
                 </Link>
             )}
         </Container>
@@ -113,6 +114,5 @@ const Description = styled.p`
     margin-bottom: 0.25rem;
     width: 85%;
 `;
-
 
 export default Card ;

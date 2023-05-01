@@ -32,7 +32,7 @@ function MovieDetail () {
     return (
         <Container>
             <Intro>
-                <ImgBox>
+                <ImgBox className="backdrop">
                     <img src={"https://image.tmdb.org/t/p/original" + movie.backdrop_path} 
                     alt="사진" 
                     />
@@ -40,9 +40,9 @@ function MovieDetail () {
             </Intro>
             <Content>
                 <LeftSide>
-                    <ImgBox>
+                    <ImgBox className="poster">
                         <img src={"https://image.tmdb.org/t/p/original" + movie.poster_path} 
-                        alt="사진" 
+                        alt="사진"
                         />
                     </ImgBox>
                 </LeftSide>
@@ -60,9 +60,9 @@ function MovieDetail () {
                             <span>{movie.runtime + " mins"}</span>
                         </Text>
                         <GenreGroup>
-                            {movie.genres.map((genre) => {
+                            {movie.genres.map(genre => 
                                 <GenreItem key={genre.id}>{genre.name}</GenreItem>
-                            })}
+                            )}
                         </GenreGroup>
                     </RightSideTop>
                     <RightSideBottom>
